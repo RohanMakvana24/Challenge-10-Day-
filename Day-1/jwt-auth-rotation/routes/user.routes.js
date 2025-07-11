@@ -1,5 +1,6 @@
-import { Router } from "express";
-import { Login, RefreshToken, Signup } from "../middlewares/UserController.js";
+import {Router} from "express";
+import {Login, logout, refreshToken, Signup} from "../controllers/userController.js";
+
 
 const router = Router();
 
@@ -10,6 +11,9 @@ router.post("/register", Signup);
 router.post("/login", Login);
 
 // refresh token route
-router.post("/refresh-token", RefreshToken);
+router.post("/refresh-token", refreshToken);
+
+// logout route
+router.get("/logout", logout);
 
 export default router;
